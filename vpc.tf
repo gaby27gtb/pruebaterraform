@@ -30,3 +30,13 @@ resource "aws_subnet" "vpc-subnet-us-east-1a" {
     Name = "VPC US-East-1a"
   }
 }
+
+resource "aws_subnet" "vpc-subnet-us-west-2b" {
+  vpc_id     = aws_vpc.test-terraform-vpc.id
+  cidr_block = "172.16.2.0/24"
+  availability_zone = var.region2
+  map_public_ip_on_launch = true
+  tags = {
+    Name = "VPC US-west-2b"
+  }
+}
